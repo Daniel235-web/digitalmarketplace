@@ -10,7 +10,7 @@ const perks = [
     description:" Get your assets delivered to your email in seconds and download them right away."
   },
   {
-    name: 'Quaranteed Quality',
+    name: 'guaranteed Quality',
     Icon: CheckCircle,
     description:" Every assets on our platform is verified by our team to ensure our highest quality standards.Not happy? we offer a 30-day refund guarantee."
   },

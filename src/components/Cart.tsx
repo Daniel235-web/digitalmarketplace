@@ -57,7 +57,7 @@ const Cart = () => {
                             <Link href="/cart"
                              className={buttonVariants({
                              className:"w-full"
-                            })}>COntinue to checkout</Link>
+                            })}>Continue to checkout</Link>
                         </SheetTrigger>
                     </SheetFooter>
                 </div>

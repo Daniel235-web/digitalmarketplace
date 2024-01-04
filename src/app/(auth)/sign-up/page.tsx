@@ -9,8 +9,9 @@ import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
 import {useForm} from "react-hook-form";
 import {zodResolver} from '@hookform/resolvers/zod';
-import {z} from "zod"
+
 import { AuthCredentialsValidator, TAuthCredentialsValidator } from "@/lib/validators/account-credentials-validators";
+import { trpc } from "@/trpc/client";
 
 const Page = () => {
     
@@ -22,11 +23,16 @@ const Page = () => {
       resolver: zodResolver(AuthCredentialsValidator),
     });
 
+   const {mutate, isLoading} = trpc.auth.createPayloadUser.useMutation({
+
+   })
+   
+
     const onSubmit = ({
         email,
         password,
     }: TAuthCredentialsValidator) => {
-        //send data to the server
+      mutate({email, password})
 
     }
     return (
@@ -57,13 +63,14 @@ const Page = () => {
                       className={cn({
                         "focus-visible:ring-red-500": errors.email,
                       })}
-                      placeholder="you@example.com"
+                      placeholder="you@gmail.com"
                     />
                   </div>
                   <div className="grid gap-1 py-2">
                     <Label htmlFor="password">Password</Label>
                     <Input
                     {...register("password")}
+                    type='password'
                       className={cn({
                         "focus-visible:ring-red-500": errors.password,
                       })}

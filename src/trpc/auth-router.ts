@@ -2,6 +2,7 @@ import { AuthCredentialsValidator } from "../lib/validators/account-credentials-
 import { publicProcedure, router } from "./trpc";
 import { getPayloadClient } from "../get-payload";
 import { TRPCError } from "@trpc/server";
+import { z } from "zod";
 
 export const authRouter = router({// Defining the router for authentication 
 
@@ -41,4 +42,8 @@ export const authRouter = router({// Defining the router for authentication
          })
          return {success: true, sentToEmail: email}
     }),
+
+    verifyEmail: publicProcedure.input(z.object({token: z.string()})).mutation(() =>{
+
+    })
 })

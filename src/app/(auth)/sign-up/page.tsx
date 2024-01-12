@@ -63,7 +63,7 @@ const Page = () => {
                       className={cn({
                         "focus-visible:ring-red-500": errors.email,
                       })}
-                      placeholder="you@gmail.com"
+                      placeholder="you@example.com"
                     />
                   </div>
                   <div className="grid gap-1 py-2">

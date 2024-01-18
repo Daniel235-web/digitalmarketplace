@@ -5,6 +5,8 @@ import { slateEditor } from "@payloadcms/richtext-slate";
 import path from "path";
 import { Users } from "./collections/Users";
 import dotenv from 'dotenv';
+import { Products } from "./collections/Products/Products";
+import { Media } from "./collections/Media";
 
 dotenv.config({
   path: path.resolve(__dirname, '../.env'),// load evironment variable from env file
@@ -12,7 +14,7 @@ dotenv.config({
 // build the default configuration for the app
 export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "",// the url of the server the app connects to
-  collections: [Users],// The list of collections used by the app
+  collections: [Users, Products, Media],// The list of collections used by the app
   routes: {
     admin: "/sell",// route to the admin page
   },
